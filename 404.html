@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wget - 404</title>
+<link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wget is a penetration testing tools">
+<meta name="keywords" content="Wget, Penetration Testing, Web Security, Web Penetration Testing, Network Security, Tools">
+</head>
+<style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #222;
+            color: #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1,
+        label,
+        textarea,
+        input,
+        button,
+        select {
+            margin: 5px;
+        }
+
+        textarea,
+        input {
+            background-color: #333;
+            color: #ddd;
+            border: 1px solid #555;
+        }
+
+        select,
+        button {
+            background-color: #333;
+            color: #ddd;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        button:hover,
+        select:hover,
+        .tool-section h2:hover {
+            background-color: #444;
+        }
+
+        .tool-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tool-section h2 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tool-section .content {
+            transition: max-height 0.5s;
+            max-height: 0;
+            overflow: hidden;
+        }
+.output-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.output-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+        .centered {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        textarea {
+    resize: both;
+}
+    h1, h2, h3, h4, h5, h6, select {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+#input-base::-webkit-scrollbar {
+  display: none; 
+}
+
+#output-base::-webkit-scrollbar-thumb {
+  display: none; 
+}
+#output-base::-webkit-scrollbar {
+  display: none; 
+}
+
+#output-base::-webkit-scrollbar-thumb {
+  display: none; 
+}
+#input-number,
+#output-number {
+    width: 95%;
+}
+#timestamp,
+#date {
+    width: 90%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+}
+
+/* sy */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .tool-section {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    font-size: 12px;
+  }
+}
+textarea {
+  width: 95vw;
+  height: 25vh;
+}
+
+.tool-section {
+  width: 95vw;
+}
+    </style>
+</head>
+<body>
+<h1>Wget</h1>
+<h2>404</h2>
+<link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+<div id="page-selector-container" style="position: absolute; left: 10px; top: 0px;">
+<select id="page-selector">
+<option value="about.html">About</option>
+<option value="index.html">PenTest Tools</option>
+<option value="sepdg.html">SEPDG</option>
+<option value="cmd.html">Cmd Generator</option>
+</select>
+</div>
+<script>
+        //page
+        document.getElementById('page-selector').addEventListener('change', (event) => {
+    const selectedPage = event.target.value;
+    window.location.href = selectedPage;
+});
+    </script>
+</body>
+</html>
