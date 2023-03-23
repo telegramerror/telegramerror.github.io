@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Now</title>
+  <link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #222;
+      color: #ddd;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .donation-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 50px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .donation-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .donation-section p {
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    .wallet-address {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: 1px solid #555;
+      padding: 10px;
+      width: 100%;
+    }
+
+
+    .wallet-address input[type="text"] {
+      background-color: #333;
+      color: #ddd;
+      border: none;
+      width: 100%;
+      padding: 5px;
+    }
+
+    .wallet-address button {
+      background-color: #333;
+      color: #ddd;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      margin-left: 10px;
+    }
+
+    .wallet-address button:hover {
+      background-color: #444;
+    }
+
+    .donation-example {
+      margin-bottom: 20px;
+    }
+
+    .donation-example p {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .donation-example p span {
+      font-weight: normal;
+    }
+
+    .donation-example button {
+      background-color: #333;
+      color: #ddd;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      margin-left: 10px;
+    }
+
+    .donation-example button:hover {
+      background-color: #444;
+    }
+
+    .copy-alert {
+      display: none;
+      background-color: #333;
+      color: #ddd;
+      padding: 10px;
+      margin-top: 20px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .copy-alert.show {
+      display: block;
+    }
+        h1, h2, h3, h4, h5, h6, p {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Donate Now</h1>
+<h3 align="center">Thank you for considering a donate to support our penetration testing tool! </h3>
+<h3 align="center">Your generous contribution helps us to maintain, improve, and expand this  tool.</h3>
+  <div class="donation-section">
+    <h3>BTC</h3>
+    <p>Please donate BTC to the following address:</p>
+    <div class="wallet-address">
+      <input type="text" value="bc1qera2uc6j96u0z2cdx2zfakm3n7ldccuwkqes5r" readonly onfocus="this.select()">
+      <button class="copy-button" data-address="bc1qera2uc6j96u0z2cdx2zfakm3n7ldccuwkqes5r">Copy</button>
+    </div>
+      <div class="donation-section">
+    <h3>ETH</h3>
+    <p>Please donate ETH to the following address:</p>
+    <div class="wallet-address">
+      <input type="text" value="0x7efD75Eb682553391B0EC16C65eF980af6e32309" readonly onfocus="this.select()">
+      <button class="copy-button" data-address="0x7efD75Eb682553391B0EC16C65eF980af6e32309">Copy</button>
+    </div>
+      <div class="donation-section">
+    <h3>USDT(ERC20)</h3>
+    <p>Please donate USDT(ERC20) to the following address:</p>
+    <div class="wallet-address">
+      <input type="text" value="0x7efD75Eb682553391B0EC16C65eF980af6e32309" readonly onfocus="this.select()">
+      <button class="copy-button" data-address="0x7efD75Eb682553391B0EC16C65eF980af6e32309">Copy</button>
+    </div>
+        <h3>USDT(TRC20)</h3>
+    <p>Please donate USDT(TRC20) to the following address:</p>
+    <div class="wallet-address">
+      <input type="text" value="TURcJyb355RZNmFwhkGfeeoCnKDssCiZe3" readonly onfocus="this.select()">
+      <button class="copy-button" data-address="TURcJyb355RZNmFwhkGfeeoCnKDssCiZe3">Copy</button>
+    </div>
+    <script>
+    const copyButtons = document.querySelectorAll(".copy-button");
+
+const showMessage = (message) => {
+  const alertBox = document.createElement("div");
+  alertBox.textContent = message;
+  alertBox.style.position = "fixed";
+  alertBox.style.bottom = "20px";
+  alertBox.style.right = "20px";
+  alertBox.style.backgroundColor = "#333";
+  alertBox.style.color = "#ddd";
+  alertBox.style.padding = "10px";
+  alertBox.style.borderRadius = "5px";
+  alertBox.style.opacity = "1";
+  alertBox.style.transition = "opacity 0.5s";
+  document.body.appendChild(alertBox);
+
+  setTimeout(() => {
+    alertBox.style.opacity = "0";
+  }, 2000);
+
+  setTimeout(() => {
+    document.body.removeChild(alertBox);
+  }, 2500);
+};
+
+copyButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const address = button.getAttribute("data-address");
+
+    const tempInput = document.createElement("input");
+    tempInput.type = "text";
+    tempInput.value = address;
+    tempInput.style.position = "absolute";
+    tempInput.style.left = "-9999px";
+    document.body.appendChild(tempInput);
+
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    showMessage("Address copied to clipboard!");
+  });
+});
+
+    </script>

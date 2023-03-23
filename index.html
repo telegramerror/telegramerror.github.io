@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wget - Your Penetration Testing Tools</title>
+    <link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wget is a penetration testing tools">
+    <meta name="keywords" content="Wget, Penetration Testing, Web Security, Web Penetration Testing, Network Security, Tools">
+  </head>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #222;
+            color: #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1,
+        label,
+        textarea,
+        input,
+        button,
+        select {
+            margin: 5px;
+        }
+
+        textarea,
+        input {
+            background-color: #333;
+            color: #ddd;
+            border: 1px solid #555;
+        }
+
+        select,
+        button {
+            background-color: #333;
+            color: #ddd;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        button:hover,
+        select:hover,
+        .tool-section h2:hover {
+            background-color: #444;
+        }
+
+        .tool-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tool-section h2 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tool-section .content {
+            transition: max-height 0.5s;
+            max-height: 0;
+            overflow: hidden;
+        }
+.output-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.output-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+        .centered {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        textarea {
+    resize: both;
+}
+    h1, h2, h3, h4, h5, h6, select {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+#input-base::-webkit-scrollbar {
+  display: none; 
+}
+
+#output-base::-webkit-scrollbar-thumb {
+  display: none; 
+}
+#output-base::-webkit-scrollbar {
+  display: none; 
+}
+
+#output-base::-webkit-scrollbar-thumb {
+  display: none; 
+}
+#input-number,
+#output-number {
+    width: 95%;
+}
+#timestamp,
+#date {
+    width: 90%;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+}
+
+/* sy */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .tool-section {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    font-size: 12px;
+  }
+}
+textarea {
+  width: 95vw;
+  height: 25vh;
+}
+
+.tool-section {
+  width: 95vw;
+}
+    </style>
+</head>
+<body>
+    <h1>Wget</h1>
+    <h1>Penetration Testing Tools</h1>
+    <link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+    <div id="page-selector-container" style="position: absolute; left: 10px; top: 0px;">
+    <select id="page-selector">
+        <option value="tools.html">PenTest Tools</option>
+        <option value="sepdg.html">SEPDG</option>
+        <option value="cmd.html">Cmd Generator</option>
+    </select>
+</div>
+
+    <div class="tool-section">
+        <h2 id="encoding-tool-title">Encoder/Decoder</h2>
+        <div class="content" id="encoding-tool-content">
+            <textarea id="input" rows="10" cols="60" placeholder="Input"></textarea>
+            <br>
+            <textarea id="output" rows="10" cols="60" placeholder="Output"></textarea>
+            <br>
+            <div class="centered">
+                <select id="encoding">
+                <option value="base64">Base64</option>
+                <option value="url">URL</option>
+                <option value="html">HTML</option>
+                <option value="hex">Hex</option>
+                <option value="ascii">ASCII</option>
+                <option value="unicode">Unicode</option>
+            </select>
+            <button id="encode">Encode</button>
+            <button id="decode">Decode</button>
+        </div>
+    </div>
+    <div class="tool-section">
+        <h2 id="timestamp-tool-title">Unix Time Stamp</h2>
+        <div class="content" id="timestamp-tool-content">
+            <input type="number" id="timestamp" placeholder="Timestamp(s)">
+            <br>
+            <input type="text" id="date" placeholder="Date">
+            <br>
+            <div class="centered">
+                <button id="timestamp-to-date">Timestamp to Date</button>
+                <button id="date-to-timestamp">Date to Timestamp</button>
+            </div>
+        </div>
+<div class="tool-section">
+    <h2 id="conversion-tool-title">number base conversion</h2>
+        <div class="content" id="conversion-tool-content">
+            <input type="text" id="input-number" placeholder="input number">
+            <input type="text" id="output-number" placeholder="output">
+            <label for="output-base">input base</label>
+                            <select id="input-base">
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+            </select>
+            <label for="output-base">output base</label>
+                                        <select id="output-base">
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+            </select>
+                <button id="convert">Convert</button>
+            </div>
+        </div>
+<div class="tool-section">
+    <h2 id="base64-tool-title">Base64 img/audio convert</h2>
+        <div class="content" id="base64-tool-content">
+            <div class="output-container" id="input-image-container"></div>
+            <textarea id="base64-input" rows="10" cols="60" placeholder="Base64 input"></textarea>
+            <br>
+            <div class="output-container" id="output-image-container"></div>
+            <textarea id="base64-output" rows="10" cols="60" placeholder="Base64 output"></textarea>
+            <br>
+            <input type="file" id="file-input" style="display:none;">
+            <div class="centered">
+                <button id="select-file">Select file</button>
+                <button id="file-to-base64">File to base64</button>
+        <button id="base64-to-img">Base64 to img</button>
+        <button id="base64-to-audio">Base64 to audio</button>
+    </div>
+</div>
+<div class="tool-section">
+    <h2 id="encryption-tool-title">Encryption/Decryption/Hash</h2>
+    <div class="content" id="encryption-tool-content">
+
+        <select id="encryption-algorithm">
+            <option value="MD5">MD5</option>
+            <option value="XOR">XOR</option>
+            <option value="AES">AES</option>
+            <option value="SHA-1">SHA-1</option>
+            <option value="SHA-256">SHA-256</option>
+        </select>
+        <div id="encryption-inputs"></div>
+    </div>
+</div>
+<div class="tool-section">
+    <h2 id="password-generator-title">Password Generator</h2>
+    <div class="content" id="password-generator-content">
+        <label for="password-length">Password Length:</label>
+        <input type="number" id="password-length" min="1" value="12">
+        <br>
+        <label for="password-options">Options:</label>
+        <input type="checkbox" id="include-uppercase" checked> Include Uppercase
+        <input type="checkbox" id="include-lowercase" checked> Include Lowercase
+        <input type="checkbox" id="include-numbers" checked> Include Numbers
+        <input type="checkbox" id="include-symbols"> Include Symbols
+        <br>
+        <input type="text" id="generated-password" readonly>
+        <button id="generate-password">Generate Password</button>
+    </div>
+</div>
+<div class="tool-section">
+    <h2 id="jwt-tool-title">JWT Decoder & Validator</h2>
+    <div class="content" id="jwt-tool-content">
+        <textarea id="jwt-input" rows="5" cols="60" placeholder="Iinput JWT"></textarea>
+        <br>
+        <textarea id="jwt-decoded" rows="5" cols="60" placeholder="Decoded JWT"></textarea>
+        <br>
+        <button id="decode-jwt">Decode JWT</button>
+        <button id="validate-jwt">Validate JWT</button>
+    </div>
+</div>
+
+
+<div class="tool-section">
+    <h2 id="string-tool-title">String Manipulation</h2>
+    <div class="content" id="string-tool-content">
+        <textarea id="string-input" rows="5" cols="60" placeholder="Input text"></textarea>
+        <br>
+        <textarea id="string-output" rows="5" cols="60" placeholder="Output text"></textarea>
+        <br>
+        <button id="to-uppercase">To Uppercase</button>
+        <button id="to-lowercase">To Lowercase</button>
+        <button id="reverse-string">Reverse String</button>
+        <button id="calculate-length">Calculate Length</button>
+    </div>
+</div>
+<div id="footer">
+    <button id="close-btn">X</button>
+    <p>All of this is provided for free. With your help, this site will remain online forever.</p>
+    <p>We will continue to update and provide the tools you need.<strong><a href="donate.html" target="_blank" style="color: white; text-decoration: underline;">Donate</a></strong></p>
+</div>
+<script>
+const footer = document.querySelector("#footer");
+const closeBtn = document.querySelector("#close-btn");
+
+closeBtn.addEventListener("click", function() {
+  footer.style.display = "none";
+});
+
+</script>
+<script src="crypto-js.min.js"></script>
+<script src="ptt.js"></script>
+</body>
+</html>

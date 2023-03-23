@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wget - SEPDG</title>
+    <link rel="icon" href="./favicon.ico" type="image/ico" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Wget is a penetration testing tools">
+    <meta name="keywords" content="Wget, Penetration Testing, Web Security, Web Penetration Testing, Network Security, Tools">
+    <style>
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #222;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, textarea, input, button, progress {
+    margin: 5px;
+}
+
+textarea {
+    resize: none;
+    background-color: #333;
+    color: #ddd;
+    border: 1px solid #555;
+}
+
+input, progress {
+    background-color: #333;
+    color: #ddd;
+    border: 1px solid #555;
+}
+
+button {
+    background-color: #333;
+    color: #ddd;
+    border: 1px solid #555;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+        h1,
+        label,
+        textarea,
+        input,
+        button,
+        select {
+            margin: 5px;
+        }
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+    h1, h2, h3, h4, h5, h6, label, button {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+        select,
+        button {
+            background-color: #333;
+            color: #ddd;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+}
+/*sezi*/
+@media (max-width: 768px) {
+  .items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .item {
+    margin: 10px 0;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>SEPDG</h1>
+            <div id="page-selector-container" style="position: absolute; left: 10px; top: 0px;">
+    <select id="page-selector">
+        <option value="sepdg.html">SEPDG</option>
+        <option value="index.html">PenTest Tools</option>
+        <option value="cmd.html">Cmd Generator</option>
+    </select>
+</div>
+        <h2>Social Engineering Password Dictionary Generator</h2>
+    <label for="combination">Combination Method:</label>
+    <input type="text" id="combination" value="ABC,ACB,ACC,AB,AC">
+
+<div class="items">
+    <div class="item">
+            <label for="a">A Item:</label>
+            <textarea id="a" rows="10" cols="30"></textarea>
+            <input type="file" id="importA" style="display:none;">
+            <button id="importAButton">Import Text</button>
+        </div>
+    <div class="item">
+            <label for="b">B Item:</label>
+            <textarea id="b" rows="10" cols="30"></textarea>
+            <input type="file" id="importB" style="display:none;">
+            <button id="importBButton">Import Text</button>
+        </div>
+        <div class="item">
+            <label for="c">C Item:</label>
+            <textarea id="c" rows="10" cols="30"></textarea>
+            <input type="file" id="importC" style="display:none;">
+            <button id="importCButton">Import Text</button>
+        </div>
+    </div>
+
+    <button id="generate">Generate Dictionary</button>
+    <br>
+    <p>Items A, B, and C can consist of various types of characters</p>
+    <p>allowing for flexible combinations to generate password dictionaries.</p>
+    <p>example:A Item=ABC B Item=123 C Item=!@# Note:Enter a string of characters per line</p>
+    <label for="progress">Progress:</label>
+    <progress id="progress" value="0" max="100"></progress>
+
+<div id="footer">
+    <button id="close-btn">X</button>
+    <p>All of this is provided for free. With your help, this site will remain online forever.</p>
+    <p>We will continue to update and provide the tools you need.<strong><a href="donate.html" target="_blank" style="color: white; text-decoration: underline;">Donate</a></strong></p>
+</div>
+<script>
+const footer = document.querySelector("#footer");
+const closeBtn = document.querySelector("#close-btn");
+
+closeBtn.addEventListener("click", function() {
+  footer.style.display = "none";
+});
+</script>
+<script src="sepdg.js"></script>
+</body>
+</html>
