@@ -184,6 +184,13 @@ searchBtn.addEventListener("click", function() {
   }
 });
 </script>
+<script>
+        //page
+        document.getElementById('page-selector').addEventListener('change', (event) => {
+    const selectedPage = event.target.value;
+    window.location.href = selectedPage;
+});
+    </script>
 
 </body>
 </html>
