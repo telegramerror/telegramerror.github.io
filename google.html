@@ -143,23 +143,23 @@ select, button {
 <div id="search-container">
     <input type="text" id="domain-input" placeholder="Enter domain">
     <select id="google-hacking-syntax">
-        <option value="ext:doc | ext:docx | ext:odt | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv">Publicly exposed documents</option>
-        <option value="intitle:index.of">Directory listing vulnerabilities</option>
-        <option value="ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env">Configuration files exposed</option>
-        <option value="ext:sql | ext:dbf | ext:mdb">Database files exposed</option>
-        <option value="ext:log">Log files exposed</option>
-        <option value="ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup">Backup and old files</option>
-        <option value="inurl:login | inurl:signin | intitle:Login | intitle:'sign in' | inurl:auth">Login pages</option>
-        <option value="intext:'sql syntax near' | intext:'syntax error has occurred' | intext:'incorrect syntax near' | intext:'unexpected end of SQL command' | intext:'Warning: mysql_connect()' | intext:'Warning: mysql_query()' | intext:'Warning: pg_connect()'">SQL errors</option>
-        <option value="'PHP Parse error' | 'PHP Warning' | 'PHP Error'">PHP errors / warning</option>
-        <option value="ext:php intitle:phpinfo 'published by the PHP Group'">phpinfo()</option>
-        <option value="site:pastebin.com | site:paste2.org | site:pastehtml.com | site:slexy.org | site:snipplr.com | site:snipt.net | site:textsnip.com | site:bitpaste.app | site:justpaste.it | site:heypasteit.com | site:hastebin.com | site:dpaste.org | site:dpaste.com | site:codepad.org | site:jsitor.com | site:codepen.io | site:jsfiddle.net | site:dotnetfiddle.net | site:phpfiddle.org | site:ide.geeksforgeeks.org | site:repl.it | site:ideone.com | site:paste.debian.net | site:paste.org | site:paste.org.ru | site:codebeautify.org  | site:codeshare.io | site:trello.com">Search pastebin.com / pasting sites</option>
-        <option value="site:github.com | site:gitlab.com">Search github.com and gitlab.com</option>
-        <option value="site:stackoverflow.com">Search stackoverflow.com</option>
-        <option value="inurl:signup | inurl:register | intitle:Signup">Signup pages</option>
-        <option value="site:*.">Find Subdomains</option>
-        <option value="site:*.*.">Find Sub-Subdomains</option>
-        <option value="( ) (site:*.*.29.* | site:*.*.28.* | site:*.*.27.* | site:*.*.26.* | site:*.*.25.* | site:*.*.24.* | site:*.*.23.* | site:*.*.22.* | site:*.*.21.* | site:*.*.20.* | site:*.*.19.* | site:*.*.18.* | site:*.*.17.* | site:*.*.16.* | site:*.*.15.* | site:*.*.14.* | site:*.*.13.* | site:*.*.12.* | site:*.*.11.* | site:*.*.10.* | site:*.*.9.* | site:*.*.8.* | site:*.*.7.* | site:*.*.6.* | site:*.*.5.* | site:*.*.4.* | site:*.*.3.* | site:*.*.2.* | site:*.*.1.* | site:*.*.0.*)">Show only IP addresses</option>
+        <option value="site:$domain ext:doc | ext:docx | ext:odt | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv">Publicly exposed documents</option>
+        <option value="site:$domain intitle:index.of">Directory listing vulnerabilities</option>
+        <option value="site:$domain ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:ini | ext:env">Configuration files exposed</option>
+        <option value="site:$domain ext:sql | ext:dbf | ext:mdb">Database files exposed</option>
+        <option value="site:$domain ext:log">Log files exposed</option>
+        <option value="site:$domain ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup">Backup and old files</option>
+        <option value="site:$domain inurl:login | inurl:signin | intitle:Login | intitle:'sign in' | inurl:auth">Login pages</option>
+        <option value="site:$domain intext:'sql syntax near' | intext:'syntax error has occurred' | intext:'incorrect syntax near' | intext:'unexpected end of SQL command' | intext:'Warning: mysql_connect()' | intext:'Warning: mysql_query()' | intext:'Warning: pg_connect()'">SQL errors</option>
+        <option value="site:$domain 'PHP Parse error' | 'PHP Warning' | 'PHP Error'">PHP errors / warning</option>
+        <option value="site:$domain ext:php intitle:phpinfo 'published by the PHP Group' "$domain"">phpinfo()</option>
+        <option value="site:pastebin.com | site:paste2.org | site:pastehtml.com | site:slexy.org | site:snipplr.com | site:snipt.net | site:textsnip.com | site:bitpaste.app | site:justpaste.it | site:heypasteit.com | site:hastebin.com | site:dpaste.org | site:dpaste.com | site:codepad.org | site:jsitor.com | site:codepen.io | site:jsfiddle.net | site:dotnetfiddle.net | site:phpfiddle.org | site:ide.geeksforgeeks.org | site:repl.it | site:ideone.com | site:paste.debian.net | site:paste.org | site:paste.org.ru | site:codebeautify.org  | site:codeshare.io | site:trello.com &quot;$domain&quot;">Search pastebin.com / pasting sites</option>
+        <option value="site:github.com | site:gitlab.com &quot;$domain&quot;">Search github.com and gitlab.com</option>
+        <option value="site:stackoverflow.com &quot;$domain&quot;">Search stackoverflow.com</option>
+        <option value="site:$domain inurl:signup | inurl:register | intitle:Signup">Signup pages</option>
+        <option value="site:*.$domain">Find Subdomains</option>
+        <option value="site:*.*.$domain">Find Sub-Subdomains</option>
+        <option value="($domain) (site:*.*.29.* | site:*.*.28.* | site:*.*.27.* | site:*.*.26.* | site:*.*.25.* | site:*.*.24.* | site:*.*.23.* | site:*.*.22.* | site:*.*.21.* | site:*.*.20.* | site:*.*.19.* | site:*.*.18.* | site:*.*.17.* | site:*.*.16.* | site:*.*.15.* | site:*.*.14.* | site:*.*.13.* | site:*.*.12.* | site:*.*.11.* | site:*.*.10.* | site:*.*.9.* | site:*.*.8.* | site:*.*.7.* | site:*.*.6.* | site:*.*.5.* | site:*.*.4.* | site:*.*.3.* | site:*.*.2.* | site:*.*.1.* | site:*.*.0.*)">Show only IP addresses</option>
         <!-- Add other syntax options as needed -->
     </select>
     <button id="search-btn">Search</button>
@@ -174,16 +174,17 @@ searchBtn.addEventListener("click", function() {
   const selectedSyntax = googleHackingSyntax.value;
   const domain = domainInput.value.trim();
   if (domain === "") {
-    alert("Please enter a domain.");
+    alert("请输入一个域名。");
   } else if (selectedSyntax) {
-    const query = "site:" + domain + " " + selectedSyntax;
-    const googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(query);
+    const query = selectedSyntax.replace("$domain", domain);
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
     window.open(googleSearchUrl, "_blank");
   } else {
-    alert("Please select a syntax from the dropdown.");
+    alert("请选择一个搜索语法。");
   }
 });
 </script>
+
 <script>
         //page
         document.getElementById('page-selector').addEventListener('change', (event) => {
